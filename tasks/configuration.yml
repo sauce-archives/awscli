@@ -10,7 +10,7 @@
     state=directory
     owner="{{ item.key }}"
     group="{{ item.key }}"
-    mode=0500
+    mode=0700
   sudo: yes
   with_dict: "{{ awscli_users }}"
 
