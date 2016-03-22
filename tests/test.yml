@@ -25,7 +25,7 @@
           region: us-east-1
           output: text
       awscli_users:
-        vagrant:
+        "{{ ansible_ssh_user }}":
           profiles:
             - default
             - user2
