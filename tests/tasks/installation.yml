@@ -13,3 +13,4 @@
   register: test
   changed_when: no
   failed_when: test is defined and test.stdout.find("{{ awscli_version }}") == -1
+  sudo: yes
