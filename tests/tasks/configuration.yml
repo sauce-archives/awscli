@@ -13,7 +13,7 @@
   changed_when: no
 
 - name: ensure credentials was generated as expected
-  command: "diff ~{{ test_user }}/.aws/credentials ~{{ test_user }}/.aws/credentials.expected"
+  command: "diff -q -w ~{{ test_user }}/.aws/credentials ~{{ test_user }}/.aws/credentials.expected"
   changed_when: no
 
 - name: copy to server expected configuration
@@ -26,5 +26,5 @@
   changed_when: no
 
 - name: ensure config was generated as expected
-  command: "diff ~{{ test_user }}/.aws/config ~{{ test_user }}/.aws/config.expected"
+  command: "diff -q -w ~{{ test_user }}/.aws/config ~{{ test_user }}/.aws/config.expected"
   changed_when: no
