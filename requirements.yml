@@ -1,0 +1,2 @@
+- src: saucelabs-ansible.pip
+  version: v2.0.0

@@ -1,0 +1,18 @@
+---
+# file: awscli/tasks/main.yml
+#
+# tasks file
+#
+
+- include: debug.yml
+  when: debug | default(false)
+  tags: debug
+
+- include: validation.yml
+  tags: validation
+
+- include: installation.yml
+  tags: installation
+
+- include: configuration.yml
+  tags: configuration

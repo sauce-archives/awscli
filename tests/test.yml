@@ -1,0 +1,38 @@
+---
+# file: awscli/tests/test.yml
+
+- name: tests play
+  hosts: "{{ vagrant_box }}"
+  gather_facts: yes
+
+  vars:
+    debug: true
+
+  roles:
+    - role: awscli
+      awscli_profiles:
+        default:
+          aws_access_key_id: AKIAIOSFODNN7EXAMPLE
+          aws_secret_access_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+        user2:
+          aws_access_key_id: AKIAI44QH8DHBEXAMPLE
+          aws_secret_access_key: je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+      awscli_configuration:
+        default:
+          region: us-west-2
+          output: json
+        conf_east1_text:
+          region: us-east-1
+          output: text
+      awscli_users:
+        vagrant:
+          profiles:
+            - default
+            - user2
+          configuration:
+            default: default
+            user2: conf_east1_text
+      tags: awscli
+
+    - role: tests
+      tags: test

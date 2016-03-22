@@ -1,0 +1,10 @@
+---
+# file: awscli/defaults/main.yml
+#
+# defaults file
+#
+
+awscli_configuration: {}
+awscli_profiles: {}
+awscli_users: {}
+awscli_version: 1.10.14

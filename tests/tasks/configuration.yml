@@ -1,0 +1,31 @@
+---
+# file: awscli/tests/tasks/configuration.yml
+#
+# test configuration tasks.
+#
+
+- name: copy to server expected credentials
+  copy:
+    src='files/home/vagrant/.aws/credentials'
+    dest='/home/vagrant/.aws/credentials.expected'
+    owner=vagrant
+    group=vagrant
+  sudo: yes
+  changed_when: no
+
+- name: ensure credentials was generated as expected
+  command: diff /home/vagrant/.aws/credentials /home/vagrant/.aws/credentials.expected
+  changed_when: no
+
+- name: copy to server expected configuration
+  copy:
+    src='files/home/vagrant/.aws/config'
+    dest='/home/vagrant/.aws/config.expected'
+    owner=vagrant
+    group=vagrant
+  sudo: yes
+  changed_when: no
+
+- name: ensure config was generated as expected
+  command: diff /home/vagrant/.aws/config /home/vagrant/.aws/config.expected
+  changed_when: no

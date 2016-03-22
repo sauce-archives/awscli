@@ -1,0 +1,11 @@
+---
+# file: awscli/tests/tasks/main.yml
+#
+# test role execution.
+#
+
+- include: installation.yml
+  tags: installation
+
+- include: configuration.yml
+  tags: configuration

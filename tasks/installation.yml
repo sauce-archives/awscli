@@ -1,0 +1,11 @@
+---
+# file: tasks/installation.yml
+#
+# installation tasks.
+#
+
+- name: installation | ensure awscli is installed
+  pip:
+    name=awscli
+    version="{{ awscli_version }}"
+  sudo: yes

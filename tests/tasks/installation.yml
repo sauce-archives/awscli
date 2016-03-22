@@ -1,0 +1,15 @@
+---
+# file: awscli/tests/tasks/installation.yml
+#
+# test installation tasks.
+#
+
+- name: is awscli installed?
+  command: pip list | grep -e '^awscli '
+  changed_when: no
+
+- name: check awscli version
+  command: python -c 'import awscli; print awscli.__version__'
+  register: test
+  changed_when: no
+  failed_when: test is defined and test.stdout.find("{{ awscli_version }}") == -1
