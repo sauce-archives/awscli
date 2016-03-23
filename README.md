@@ -74,7 +74,7 @@ Example:
               profiles:
                 - default
               configuration:
-                - default
+                default: default
             vagrant:
               profiles:
                 - default
