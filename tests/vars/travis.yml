@@ -9,6 +9,8 @@ awscli_configuration:
   default:
     region: us-west-2
     output: json
+    s3:
+      max_concurrent_requests: 3
   conf_east1_text:
     region: us-east-1
     output: text
