@@ -5,12 +5,13 @@
 #
 
 - fail:
-    msg="only Ubuntu is supported"
-  when: ansible_distribution != 'Ubuntu'
+    msg="only Ubuntu and Debain are supported"
+  when: not (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian')
 
 - fail:
-    msg="only Ubuntu >= 12.04 is supported"
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('12.04', '<')
+    msg="only Ubuntu >= 12.04 and Debian >=8 are supported"
+  when: (ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('12.04', '<'))  or
+        (ansible_distribution == 'Debian' and ansible_distribution_version | version_compare('8', '<'))
 
 - name: ensure mandatory variables are set
   fail:
